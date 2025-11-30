@@ -614,7 +614,13 @@
                 <!-- Contact Form -->
                 <div class="bg-white p-8 rounded-xl shadow-md">
                     <h3 class="text-2xl font-bold mb-6" data-i18n="contact.form.title">Envíame un mensaje</h3>
-                    <form id="contactForm" class="space-y-6">
+                    <form id="contactForm" action="https://formsubmit.co/grebodeveloper@gmail.com" method="POST"
+                        class="space-y-6">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="Nuevo mensaje de tu portafolio">
+                        <input type="hidden" name="_next" value="https://grebo87.github.io/">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1"
                                 data-i18n="contact.form.name">Nombre</label>
@@ -1079,6 +1085,8 @@
             }
 
             // Form submission
+            // Form submission handled by Formsubmit.co
+            /*
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function (e) {
@@ -1087,6 +1095,7 @@
                     contactForm.reset();
                 });
             }
+            */
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
