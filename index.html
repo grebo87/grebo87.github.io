@@ -1,731 +1,1141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 
 <head>
-    <meta charset="utf-8">
-    <title>Grebo - Web Development</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Greorio Boada" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gregorio Boada - Desarrollador Full Stack</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portafolio de Gregorio Boada, Desarrollador Full Stack con más de 10 años de experiencia en PHP, Laravel, Node.js, React y Vue.js.">
+    <meta name="keywords"
+        content="Gregorio Boada, Desarrollador Web, Full Stack Developer, PHP, Laravel, Node.js, React, Vue.js, Venezuela, Programador">
+    <meta name="author" content="Gregorio Boada">
+    <link rel="canonical" href="https://grebo87.github.io/">
+    <link rel="icon" type="image/png" href="img/logo.png">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://grebo87.github.io/">
+    <meta property="og:title" content="Gregorio Boada - Desarrollador Full Stack">
+    <meta property="og:description"
+        content="Portafolio profesional de Gregorio Boada. Especialista en desarrollo de aplicaciones web modernas y escalables.">
+    <meta property="og:image" content="https://grebo87.github.io/img/about2.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://grebo87.github.io/">
+    <meta property="twitter:title" content="Gregorio Boada - Desarrollador Full Stack">
+    <meta property="twitter:description"
+        content="Portafolio profesional de Gregorio Boada. Especialista en desarrollo de aplicaciones web modernas y escalables.">
+    <meta property="twitter:image" content="https://grebo87.github.io/img/about2.jpeg">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 110px;
+            /* Moved left to make space for the back to top button */
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 99;
+            /* One less than back to top button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp .whatsapp-icon {
+            margin: 0;
+        }
+
+        .language-switcher {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-switcher:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">Grebo</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#qualification" class="nav-item nav-link">Quality</a>
-                <a href="#skill" class="nav-item nav-link">Skill</a>
-                <a href="#service" class="nav-item nav-link">Service</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <!-- <a href="#testimonial" class="nav-item nav-link">Review</a> -->
-                <a href="#contact" class="nav-item nav-link">Contact</a>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center">
+                        <img src="img/logo.png" alt="GB Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600" data-i18n="nav.home">Inicio</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600" data-i18n="nav.about">Sobre
+                        Mí</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-blue-600"
+                        data-i18n="nav.services">Servicios</a>
+                    <a href="#portfolio" class="nav-link text-gray-700 hover:text-blue-600"
+                        data-i18n="nav.portfolio">Portafolio</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600"
+                        data-i18n="nav.contact">Contacto</a>
+                    <div class="flex items-center space-x-2 ml-4">
+                        <button id="lang-es"
+                            class="language-btn px-2 py-1 rounded-md bg-blue-100 text-blue-600 font-medium"
+                            data-lang="es">ES</button>
+                        <button id="lang-en" class="language-btn px-2 py-1 rounded-md text-gray-600 hover:bg-gray-100"
+                            data-lang="en">EN</button>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                    data-i18n="nav.home">Inicio</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                    data-i18n="nav.about">Sobre Mí</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                    data-i18n="nav.services">Servicios</a>
+                <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                    data-i18n="nav.portfolio">Portafolio</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
+                    data-i18n="nav.contact">Contacto</a>
+                <div class="flex px-3 py-2 space-x-2">
+                    <button class="px-3 py-1 bg-blue-600 text-white rounded-md text-sm font-medium"
+                        data-lang="es">ES</button>
+                    <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded-md text-sm font-medium"
+                        data-lang="en">EN</button>
+                </div>
             </div>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-    <!-- Header Start -->
-    <div class="container-fluid bg-grebo d-flex align-items-center mb-5 py-5" id="home" style="min-height: 40vh;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                    <img class="img-fluid w-auto rounded-circle shadow-sm" src="img/profile2.png" alt="">
-                </div>
-                <div class="col-lg-7 text-center text-lg-left">
-                    <h3 class="font-weight-normal mb-3">I'm</h3>
-                    <h1 class="display-3 text-uppercase text-dark mb-2" style="-webkit-text-stroke: 2px #ffffff;">
-                        Gregorio Boada
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        Hola, soy <span class="text-blue-600" data-i18n="hero.title">Gregorio Boada</span>
                     </h1>
-                    <h1 class="typed-text-output d-inline font-weight-lighter "></h1>
-                    <div class="typed-text d-none">
-                        Web Developer, Front End Developer, Back End Developer
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                        <a href="uploads/cv/gregorio-boada.pdf" target="_blank"
-                            class="btn btn-outline-primary mr-5">Download CV</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
-    <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">About</h1>
-                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
-                    <img class="img-fluid rounded w-100" src="img/about2.jpeg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">DESARROLLADOR DE SOFTWARE | Especialista en PHP & Laravel</h3>
-                    <p class="text-justify">
-                        Desarrollador de software con más de 10 años de experiencia, especializado en la creación de aplicaciones web robustas y escalables con PHP y el framework Laravel. Mi trayectoria incluye el liderazgo de equipos de desarrollo, el diseño de arquitecturas de software eficientes y la gestión de proyectos de principio a fin, siempre comprometido con el aprendizaje continuo y la adopción de tecnologías modernas para entregar soluciones de alto impacto.
+                    <h2 class="text-2xl md:text-3xl text-gray-600 font-medium" data-i18n="hero.subtitle">
+                        Desarrollador Full Stack
+                    </h2>
+                    <p class="text-lg text-gray-600" data-i18n="hero.desc">
+                        Especializado en el desarrollo de aplicaciones web modernas y escalables con tecnologías como
+                        Laravel, Node.js, React y Vue.js.
                     </p>
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">grebodeveloper@gmail.com</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Teléfono: <span class="text-secondary">+58 416-2479209</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Ubicación: <span class="text-secondary">Venezuela</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>GitHub: <a href="https://github.com/grebo87" target="_blank" class="text-primary">github.com/grebo87</a></h6></div>
-                        <div class="col-sm-6 py-2"><h6>LinkedIn: <a href="https://linkedin.com/in/gregorio-boada-084373136" target="_blank" class="text-primary">gregorio-boada-084373136</a></h6></div>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#contact"
+                            class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1"
+                            data-i18n="contact.button">
+                            Contáctame
+                        </a>
+                        <a href="uploads/cv/gregorio-boada.pdf" target="_blank" rel="noopener noreferrer"
+                            class="px-6 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition duration-300 transform hover:-translate-y-1"
+                            data-i18n="cv.download" id="cv-download">
+                            Descargar CV
+                        </a>
                     </div>
-                    <a href="#contact" class="btn btn-outline-primary mr-4">Contáctame</a>
-                    <a href="uploads/cv/gregorio-boada-en.pdf" class="btn btn-outline-primary" download>Descargar CV (Inglés)</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">My Education</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Ingeniería en Informática</h5>
-                            <p class="mb-2"><strong>UPTP Luis Mariano Rivera </strong> | <small>2012 - 2015</small></p>
-                            <!-- <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p> -->
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Técnico Superior Universitario en Informática</h5>
-                            <p class="mb-2"><strong>IUT Jacinto Navarro Vallenilla</strong> | <small>2008 - 2011</small>
-                            </p>
-                            <!-- <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p> -->
-                        </div>
+                    <div class="flex space-x-6 pt-4">
+                        <a href="https://github.com/grebo87" target="_blank"
+                            class="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/gregorio-boada-084373136" target="_blank"
+                            class="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Mi Experiencia</h3>
-                    <div class="border-left border-primary pt-2 pl-4 ml-2">
-                        <div class="position-relative mb-4 text-justify">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Desarrollador Backend</h5>
-                            <p class="mb-2"><strong>Tiket Go OÜ</strong> | <small>julio 2024 - marzo 2025</small></p>
-                            <ul style="list-style-type: square;">
-                                <li>
-                                    <p>
-                                        Desarrollo del backend para una nueva plataforma, enfocado en crear una base sólida y escalable que soporte las futuras funcionalidades del negocio.
-                                    </p>
-                                </li>
-                            </ul>
-                            <p><strong>Tecnologías:</strong> PHP, Laravel, MySQL, Swagger, Socket.io, Slack</p>
+                <div class="relative flex justify-center items-center">
+                    <div class="relative">
+                        <!-- Circular Profile Image -->
+                        <div
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                            <img src="img/about2.jpeg" alt="Gregorio Boada" class="w-full h-full object-cover">
                         </div>
-
-                        <div class="position-relative mb-4 text-justify">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Desarrollador de Software</h5>
-                            <p class="mb-2"><strong>Freelancer</strong> | <small>abril 2024 - mayo 2024</small></p>
-                            <ul style="list-style-type: square;">
-                                <li>
-                                    <p>
-                                        Desarrollo e implementación de soluciones a medida para diversos clientes, gestionando el ciclo de vida completo del proyecto de forma independiente para cumplir con los plazos y requisitos.
-                                    </p>
-                                </li>
-                            </ul>
-                            <p><strong>Tecnologías:</strong> PHP, Laravel, JavaScript, NodeJS, React, MySQL, API</p>
-                        </div>
-
-                        <div class="position-relative mb-4 text-justify">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Analista Programador</h5>
-                            <p class="mb-2"><strong>GL Satelital</strong> | <small>enero 2023 - octubre 2023</small></p>
-                            <ul style="list-style-type: square;">
-                                <li>
-                                    <p>
-                                        Lideré la modernización del sistema de monitoreo, desarrollando un nuevo frontend en Angular 12 y un backend en Laravel 8, lo que mejoró la experiencia de usuario y el rendimiento del sistema.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Diseñé y desarrollé una API con Laravel 9 para la integración de sistemas, centralizando la administración y mejorando la comunicación entre servicios.
-                                    </p>
-                                </li>
-                            </ul>
-                            <p><strong>Tecnologías:</strong> PHP, Laravel, JavaScript, NodeJS, Angular2+, PostgreSQL, TypeScript, API, WebSockets, Socket.io</p>
-                        </div>
-
-                        <div class="position-relative mb-4 text-justify">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Analista Programador</h5>
-                            <p class="mb-2"><strong>Klikealo</strong> | <small>septiembre 2020 - diciembre 2022</small></p>
-                            <ul style="list-style-type: square;">
-                                <li>
-                                    <p>
-                                        Desarrollé una API puente entre el ERP Retail Pro y el e-commerce Vtex, automatizando la creación y sincronización de productos y reduciendo el tiempo de gestión manual en un 40%.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Implementé un sistema de programación de citas médicas con Laravel 8, mejorando la gestión de pacientes para una organización cliente.
-                                    </p>
-                                </li>
-                            </ul>
-                            <p><strong>Tecnologías:</strong> PHP, JavaScript, Angular2+, MySQL, API, Git, GitLab, Magento, CodeIgniter</p>
-                        </div>
-
-                        <div class="position-relative mb-4 text-justify">
-                            <i class="far fa-dot-circle text-primary position-absolute"
-                                style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Analista Programador</h5>
-                            <p class="mb-2"><strong>Geor</strong> | <small>octubre 2019 - abril 2020</small></p>
-                            <ul style="list-style-type: square;">
-                                <li>
-                                    <p>
-                                        Dirigí y gestioné un equipo de 6 desarrolladores, mejorando la eficiencia del equipo mediante la asignación estratégica de tareas y la implementación de buenas prácticas.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        Supervisé el desarrollo de una nueva API (v.2) para el sistema de facturación, introduciendo funcionalidades clave como la generación de reportes contables.
-                                    </p>
-                                </li>
-                            </ul>
-                            <p><strong>Tecnologías:</strong> PHP, Laravel, JavaScript, Vue, MySQL, API, Git</p>
+                        <!-- Experience Badge -->
+                        <div
+                            class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full whitespace-nowrap shadow-lg">
+                            <p class="text-sm font-medium" data-i18n="relative.text">+10 años de experiencia</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Qualification End -->
+    </section>
 
-    <!-- Skill Start -->
-    <div class="container-fluid py-5" id="skill">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Skills</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4" data-i18n="about.title">Sobre Mí</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- <h4 class="mb-4">Lenguajes y Frameworks</h4> -->
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">PHP</h6>
-                            <h6 class="font-weight-bold">90%</h6>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-gray-900" data-i18n="about.subtitle">
+                        Desarrollador de Software | Especialista en PHP & Laravel
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="about.description">
+                        Desarrollador de software con más de 10 años de experiencia, especializado en la creación de
+                        aplicaciones web robustas y escalables con PHP y el framework Laravel. Mi trayectoria incluye el
+                        liderazgo de equipos de desarrollo, el diseño de arquitecturas de software eficientes y la
+                        gestión de proyectos de principio a fin, siempre comprometido con el aprendizaje continuo y la
+                        adopción de tecnologías modernas para entregar soluciones de alto impacto.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-2"></i>
+                            <span>grebodeveloper@gmail.com</span>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                aria-valuemax="100"></div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-600 mr-2"></i>
+                            <span>+58 416-2479209</span>
                         </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Laravel</h6>
-                            <h6 class="font-weight-bold">95%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">JavaScript</h6>
-                            <h6 class="font-weight-bold">90%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+                            <span>Venezuela</span>
                         </div>
                     </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">TypeScript</h6>
-                            <h6 class="font-weight-bold">75%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Node.js</h6>
-                            <h6 class="font-weight-bold">80%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Angular 2+</h6>
-                            <h6 class="font-weight-bold">85%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Vue.js</h6>
-                            <h6 class="font-weight-bold">70%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">React</h6>
-                            <h6 class="font-weight-bold">70%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+                    <div class="pt-4">
+                        <a href="#contact"
+                            class="inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition duration-300"
+                            data-i18n="contact.button">
+                            Contáctame
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <!-- <h4 class="mb-4">Bases de Datos</h4> -->
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">MySQL / MariaDB</h6>
-                            <h6 class="font-weight-bold">90%</h6>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-gray-900" data-i18n="about.skills">
+                        Mis Habilidades
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- PHP -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">PHP</span>
+                                <span class="text-sm text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        <!-- Laravel -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Laravel</span>
+                                <span class="text-sm text-gray-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">PostgreSQL</h6>
-                            <h6 class="font-weight-bold">80%</h6>
+                        <!-- JavaScript -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">JavaScript</span>
+                                <span class="text-sm text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        <!-- React -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">React</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Docker</h6>
-                            <h6 class="font-weight-bold">75%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Git</h6>
-                            <h6 class="font-weight-bold">90%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Api Rest</h6>
-                            <h6 class="font-weight-bold">95%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="95" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Python</h6>
-                            <h6 class="font-weight-bold">85%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Vuejs</h6>
-                            <h6 class="font-weight-bold">85%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Angular</h6>
-                            <h6 class="font-weight-bold">65%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="65" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <!-- <h4 class="mb-4">Herramientas y Otras Habilidades</h4> -->
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Git</h6>
-                            <h6 class="font-weight-bold">90%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Docker</h6>
-                            <h6 class="font-weight-bold">75%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">API REST</h6>
-                            <h6 class="font-weight-bold">95%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-bold">Magento</h6>
-                            <h6 class="font-weight-bold">40%</h6>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        <!-- Node.js -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Node.js</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Skill End -->
+    </section>
 
-    <!-- Services Start -->
-    <div class="container-fluid pt-5" id="service">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Service</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Services</h1>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4" data-i18n="services.title">Servicios</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fas fa-2x fa-code service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Desarrollo Web</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Web Development -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-2xl text-blue-600"></i>
                     </div>
-                    <p class="text-justify">
-                        Desarrollo sitios web personalizados con tecnologías modernas como Laravel, React y Vue.js. Mis soluciones son rápidas, seguras y optimizadas para SEO. Especializado en crear experiencias de usuario excepcionales y funcionalidades a medida que impulsan el crecimiento de tu negocio en línea.
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.web">Desarrollo Web</h3>
+                    <p class="text-gray-600 mb-6 flex-grow" data-i18n="services.webDesc">
+                        Desarrollo sitios web personalizados con tecnologías modernas como Laravel, React y Vue.js. Mis
+                        soluciones son rápidas, seguras y optimizadas para SEO.
                     </p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fas fa-2x fa-mobile-alt service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Aplicaciones Móviles</h4>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Laravel</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">React</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Vue.js</span>
                     </div>
-                    <p class="text-justify">
-                        Desarrollo aplicaciones móviles híbridas y progresivas (PWA) que funcionan en múltiples plataformas. Utilizo tecnologías como React Native e Ionic para crear aplicaciones de alto rendimiento con una experiencia de usuario fluida y atractiva.
+                </div>
+                <!-- Service 2: Mobile Apps -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.mobile">Aplicaciones Móviles</h3>
+                    <p class="text-gray-600 mb-6 flex-grow" data-i18n="services.mobileDesc">
+                        Desarrollo aplicaciones móviles híbridas y progresivas (PWA) que funcionan en múltiples
+                        plataformas.
                     </p>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fas fa-2x fa-server service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">APIs & Backend</h4>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Flutter</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">React
+                            Native</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">iOS/Android</span>
                     </div>
-                    <p class="text-justify">
-                        Desarrollo de APIs RESTful robustas y escalables con Laravel y Node.js. Especializado en la integración de sistemas, autenticación segura y optimización de rendimiento. Creo soluciones backend eficientes que potencian aplicaciones web y móviles con lógica de negocio sólida.
+                </div>
+                <!-- Service 3: APIs & Backend -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.api">APIs & Backend</h3>
+                    <p class="text-gray-600 mb-6 flex-grow" data-i18n="services.apiDesc">
+                        Desarrollo de APIs RESTful robustas y escalables con Laravel y Node.js, con enfoque en
+                        integración de sistemas y autenticación segura.
                     </p>
-                </div>
-                <!-- <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fas fa-2x fa-user-tie service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Consultoría Técnica</h4>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Node.js</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">REST API</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">GraphQL</span>
                     </div>
-                    <p class="text-justify">
-                        Asesoramiento experto en arquitectura de software, selección de tecnologías y mejores prácticas de desarrollo. Ofrezco orientación estratégica para la toma de decisiones técnicas, análisis de viabilidad de proyectos y recomendaciones para optimizar procesos de desarrollo. Especializado en soluciones escalables y mantenibles con Laravel, Node.js y tecnologías web modernas.
+                </div>
+                <!-- Service 4: AI Solutions (New) -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.ai">Soluciones con IA</h3>
+                    <p class="text-gray-600 mb-6 flex-grow" data-i18n="services.aiDesc">
+                        Implementación de asistentes inteligentes, chatbots y automatización de procesos usando
+                        tecnologías como OpenAI o Google Gemini.
                     </p>
-                </div> -->
-                <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fas fa-2x fa-sync service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Integración de Sistemas</h4>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">OpenAI</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Python</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">LangChain</span>
                     </div>
-                    <p class="text-justify">
-                        Conexión de diferentes plataformas y servicios a través de APIs personalizadas. Especializado en la automatización de flujos de trabajo empresariales, sincronización de datos en tiempo real y creación de soluciones personalizadas que permiten la comunicación perfecta entre diferentes sistemas y aplicaciones.
+                </div>
+                <!-- Service 5: Technical Consulting -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.consulting">Consultoría Técnica</h3>
+                    <p class="text-gray-600 mb-6 flex-grow" data-i18n="services.consultingDesc">
+                        Asesoramiento experto en arquitectura de software, selección de tecnologías y mejores prácticas
+                        de desarrollo para proyectos escalables.
                     </p>
-                </div>
-                <!-- <div class="col-lg-4 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <i class="fas fa-2x fa-tools service-icon bg-primary text-white mr-3"></i>
-                        <h4 class="font-weight-bold m-0">Optimización y Mantenimiento</h4>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span
+                            class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Arquitectura</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Mentoring</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Agile</span>
                     </div>
-                    <p class="text-justify">
-                        Mejora continua del rendimiento y mantenimiento preventivo de aplicaciones. Incluye optimización de consultas SQL, implementación de estrategias de caché, actualizaciones de seguridad y refactorización de código. Ofrezco planes de mantenimiento personalizados para garantizar que tus aplicaciones mantengan un rendimiento óptimo y estén siempre actualizadas con las últimas tecnologías y estándares de seguridad.
+                </div>
+                <!-- Service 6: Cloud & DevOps (New) -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="services.cloud">Cloud & DevOps</h3>
+                    <p class="text-gray-600 mb-6 flex-grow" data-i18n="services.cloudDesc">
+                        Despliegue de aplicaciones en la nube, configuración de servidores y pipelines CI/CD para
+                        asegurar escalabilidad.
                     </p>
-                </div> -->
-            </div>
-        </div>
-    </div>
-    <!-- Services End -->
-
-    <!-- Portfolio Start -->
-    <div class="container-fluid pt-5 pb-3" id="portfolio">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Gallery</h1>
-                <h1 class="position-absolute text-uppercase text-primary">My Portfolio</h1>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center mb-2">
-                    <!-- <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Development</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Marketing</li>
-                    </ul> -->
-                </div>
-            </div>
-            <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portafolios/12x12/landing2a.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portafolios/12x12/landing2a.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portafolios/siagl/typevehicles.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portafolios/siagl/typevehicles.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-                    <div class="position-relative overflow-hidden mb-2">
-                        <img class="img-fluid rounded w-100" src="img/portafolios/forms/personal.png" alt="">
-                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portafolios/forms/personal.png" data-lightbox="portfolio">
-                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
-                            </a>
-                        </div>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">AWS</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">Docker</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded">CI/CD</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Portfolio End -->
+    </section>
 
-    <!-- Testimonial Start -->
-    <!-- <div class="container-fluid py-5" id="testimonial">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Review</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Clients Say</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos.
-                                Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet
-                                accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-1.jpg"
-                                style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos.
-                                Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet
-                                accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-2.jpg"
-                                style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                        <div class="text-center">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <h4 class="font-weight-light mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos.
-                                Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet
-                                accusam amet eirmod eos, labore diam clita</h4>
-                            <img class="img-fluid rounded-circle mx-auto mb-3" src="img/testimonial-3.jpg"
-                                style="width: 80px; height: 80px;">
-                            <h5 class="font-weight-bold m-0">Client Name</h5>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Testimonial End -->
-
-    <!-- Contact Start -->
-    <div class="container-fluid py-5" id="contact">
-        <div class="container">
-            <div class="position-relative d-flex align-items-center justify-content-center">
-                <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Contact</h1>
-                <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h4>Me encantaría saber de ti</h4>
-                    <p>
-                        Si tienes un proyecto y ya tienes una idea clara o solicitud de propuesta y deseas discutirlos
-                        con nosotros, envíanos un correo electrónico utilizando el formulario a continuación.
-                    </p>
-                    <p>
-                        Si tienes un proyecto pero aún no tienes claro cuál es el alcance, te ofrecemos una consultoría
-                        gratuita para generar un diseño funcional del mismo.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-form text-center">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="form-row">
-                                <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                        required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4" data-i18n="portfolio.title">Mi Portafolio</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+                <!-- Portfolio Filter -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="px-4 py-2 rounded-full bg-blue-600 text-white font-medium" data-filter="all"
+                        data-i18n="portfolio.all">Todos</button>
+                    <button
+                        class="px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors"
+                        data-filter="web" data-i18n="portfolio.web">Web</button>
+                    <button
+                        class="px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors"
+                        data-filter="mobile" data-i18n="portfolio.mobile">Móvil</button>
+                    <button </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Project 1: Tiket Go -->
+                            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                                data-category="backend">
+                                <div class="h-48 bg-gray-800 flex items-center justify-center">
+                                    <i class="fas fa-ticket-alt text-6xl text-blue-500"></i>
                                 </div>
-                                <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                        required="required"
-                                        data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.tiket.title">Tiket Go</h3>
+                                    <p class="text-gray-600 mb-4" data-i18n="portfolio.tiket.desc">
+                                        Backend escalable para plataforma de gestión, con arquitectura sólida para alto
+                                        tráfico.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Laravel</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">MySQL</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Socket.io</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
+                            <!-- Project 2: GL Satelital -->
+                            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                                data-category="web">
+                                <div class="h-48 bg-gray-100 flex items-center justify-center">
+                                    <i class="fas fa-satellite text-6xl text-blue-600"></i>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.gl.title">GL Satelital</h3>
+                                    <p class="text-gray-600 mb-4" data-i18n="portfolio.gl.desc">
+                                        Modernización de sistema de monitoreo satelital con frontend en Angular y
+                                        backend Laravel.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Angular</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Laravel</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">PostgreSQL</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
-                                    required="required"
-                                    data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
+                            <!-- Project 3: Medical Appointments (formerly 12x12) -->
+                            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                                data-category="web">
+                                <div class="h-48 overflow-hidden">
+                                    <img src="img/portafolios/12x12/importar-medicos.png" alt="Sistema de Citas Médicas"
+                                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.medical.title">Sistema de
+                                        Citas Médicas</h3>
+                                    <p class="text-gray-600 mb-4" data-i18n="portfolio.medical.desc">
+                                        Sistema de gestión de pacientes y programación de citas médicas.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Laravel</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Vue.js</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">MySQL</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <button disabled class="btn btn-outline-primary" type="submit"
-                                    id="sendMessageButton">Send
-                                    Message</button>
+                            <!-- Project 4: Klikealo Integration -->
+                            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                                data-category="backend">
+                                <div class="h-48 bg-gray-50 flex items-center justify-center">
+                                    <i class="fas fa-exchange-alt text-6xl text-green-600"></i>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.klikealo.title">Integración
+                                        ERP - E-commerce</h3>
+                                    <p class="text-gray-600 mb-4" data-i18n="portfolio.klikealo.desc">
+                                        API puente para sincronización automática entre Retail Pro y Vtex.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">PHP</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">API
+                                            REST</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Vtex</span>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
+                            <!-- Project 5: SIAGL -->
+                            <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                                data-category="web">
+                                <div class="h-48 overflow-hidden">
+                                    <img src="img/portafolios/siagl/typevehicles.png" alt="Sistema SIAGL"
+                                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2" data-i18n="portfolio.siagl.title">Sistema SIAGL
+                                    </h3>
+                                    <p class="text-gray-600 mb-4" data-i18n="portfolio.siagl.desc">
+                                        Sistema integral para la gestión de talleres mecánicos y seguimiento de
+                                        vehículos.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Laravel</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">React</span>
+                                        <span
+                                            class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-12">
+                            <a href="https://github.com/grebo87?tab=repositories" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-block px-6 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition duration-300"
+                                data-i18n="portfolio.more">
+                                Ver más proyectos
+                            </a>
+                        </div>
+                </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4" data-i18n="contact.title">Contáctame</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="contact.subtitle">
+                    ¿Tienes un proyecto en mente o alguna pregunta? No dudes en contactarme, estaré encantado de
+                    ayudarte.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-6" data-i18n="contact.form.title">Envíame un mensaje</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1"
+                                data-i18n="contact.form.name">Nombre</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1"
+                                data-i18n="contact.form.email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1"
+                                data-i18n="contact.form.subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1"
+                                data-i18n="contact.form.message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
+                                data-i18n="contact.form.submit">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="contact.info.title">Información de contacto</h3>
+                        <p class="text-gray-600" data-i18n="contact.info.desc">
+                            Estoy disponible para trabajar en nuevos proyectos, colaboraciones o cualquier consulta. ¡No
+                            dudes en contactarme!
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-900" data-i18n="contact.info.email">Correo electrónico
+                                </h4>
+                                <p class="text-gray-600">grebodeveloper@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-900" data-i18n="contact.info.phone">Teléfono</h4>
+                                <p class="text-gray-600">+58 416-2479209</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium text-gray-900" data-i18n="contact.info.location">Ubicación</h4>
+                                <p class="text-gray-600">Venezuela</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <h4 class="font-medium text-gray-900 mb-4" data-i18n="contact.social">Sígueme</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/grebo87" target="_blank"
+                                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/gregorio-boada-084373136" target="_blank"
+                                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Contact End -->
+    </section>
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white mt-2 py-2 px-sm-3 px-md-5">
-        <div class="container text-center py-2">
-            <!-- <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
-            </div> -->
-            <!-- <div class="d-flex justify-content-center mb-3">
-                <a class="text-white" href="#">Privacy</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Terms</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">FAQs</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Help</a>
-            </div> -->
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">gregorioboada.com</a>. All Rights
-                Reserved.
-                <!-- Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a> -->
-            </p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Gregorio Boada</h3>
+                    <p class="text-gray-400" data-i18n="footer.desc">
+                        Desarrollador Full Stack especializado en crear soluciones digitales innovadoras y de alto
+                        rendimiento.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.links">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors"
+                                data-i18n="nav.home">Inicio</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors"
+                                data-i18n="nav.about">Sobre Mí</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors"
+                                data-i18n="nav.services">Servicios</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors"
+                                data-i18n="nav.portfolio">Portafolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors"
+                                data-i18n="nav.contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.contact">Información de Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-blue-400"></i>
+                            <span>grebodeveloper@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-blue-400"></i>
+                            <span>+58 416-2479209</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-blue-400"></i>
+                            <span data-i18n="footer.location">Venezuela</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p data-i18n="footer.copyright">© 2024 Gregorio Boada. Todos los derechos reservados.</p>
+            </div>
         </div>
-    </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-colors duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer End -->
     <a href="https://wa.me/584162479209?text=Hola+Grebo%2C+me+gustaría+que+conversemos+sobre+un+proyecto."
         class="whatsapp" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
 
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+    <!-- JavaScript -->
+    <script>
+        // Definir las traducciones
+        const translations = {
+            es: {
+                // Navigation
+                'nav.home': 'Inicio',
+                'nav.about': 'Sobre Mí',
+                'nav.services': 'Servicios',
+                'nav.portfolio': 'Portafolio',
+                'nav.contact': 'Contacto',
+                // Hero Section
+                'hero.title': 'Gregorio Boada',
+                'hero.subtitle': 'Desarrollador Full Stack',
+                'hero.desc': 'Especializado en el desarrollo de aplicaciones web modernas y escalables con tecnologías como Laravel, Node.js, React y Vue.js.',
+                // Relative Section
+                'relative.text': '+10 años de experiencia',
+                // About Section
+                'about.title': 'Sobre Mí',
+                'about.subtitle': 'Desarrollador de Software | Especialista en PHP & Laravel',
+                'about.description': 'Desarrollador de software con más de 10 años de experiencia, especializado en la creación de aplicaciones web robustas y escalables con PHP y el framework Laravel. Mi trayectoria incluye el liderazgo de equipos de desarrollo, el diseño de arquitecturas de software eficientes y la gestión de proyectos de principio a fin, siempre comprometido con el aprendizaje continuo y la adopción de tecnologías modernas para entregar soluciones de alto impacto.',
+                'about.skills': 'Mis Habilidades',
+                // Services Section
+                'services.title': 'Servicios',
+                'services.web': 'Desarrollo Web',
+                'services.webDesc': 'Desarrollo sitios web personalizados con tecnologías modernas como Laravel, React y Vue.js. Mis soluciones son rápidas, seguras y optimizadas para SEO.',
+                'services.mobile': 'Aplicaciones Móviles',
+                'services.mobileDesc': 'Desarrollo aplicaciones móviles híbridas y progresivas (PWA) que funcionan en múltiples plataformas.',
+                'services.api': 'APIs & Backend',
+                'services.apiDesc': 'Desarrollo de APIs RESTful robustas y escalables con Laravel y Node.js, con enfoque en integración de sistemas y autenticación segura.',
+                'services.ai': 'Soluciones con IA',
+                'services.aiDesc': 'Implementación de asistentes inteligentes, chatbots y automatización de procesos usando tecnologías como OpenAI o Google Gemini.',
+                'services.consulting': 'Consultoría Técnica',
+                'services.consultingDesc': 'Asesoramiento experto en arquitectura de software, selección de tecnologías y mejores prácticas de desarrollo para proyectos escalables.',
+                'services.cloud': 'Cloud & DevOps',
+                'services.cloudDesc': 'Despliegue de aplicaciones en la nube, configuración de servidores y pipelines CI/CD para asegurar escalabilidad.',
+                // Portfolio Section
+                'portfolio.title': 'Mi Portafolio',
+                'portfolio.all': 'Todos',
+                'portfolio.web': 'Web',
+                'portfolio.mobile': 'Móvil',
+                'portfolio.backend': 'Backend',
+                'portfolio.tiket.title': 'Tiket Go',
+                'portfolio.tiket.desc': 'Backend escalable para plataforma de gestión, con arquitectura sólida para alto tráfico.',
+                'portfolio.gl.title': 'GL Satelital',
+                'portfolio.gl.desc': 'Modernización de sistema de monitoreo satelital con frontend en Angular y backend Laravel.',
+                'portfolio.medical.title': 'Sistema de Citas Médicas',
+                'portfolio.medical.desc': 'Sistema de gestión de pacientes y programación de citas médicas.',
+                'portfolio.klikealo.title': 'Integración ERP - E-commerce',
+                'portfolio.klikealo.desc': 'API puente para sincronización automática entre Retail Pro y Vtex.',
+                'portfolio.siagl.title': 'Sistema SIAGL',
+                'portfolio.siagl.desc': 'Sistema integral para la gestión de talleres mecánicos y seguimiento de vehículos.',
+                'portfolio.more': 'Ver más proyectos',
+                'portfolio.view': 'Ver Proyecto',
+                // Contact Section
+                'contact.title': 'Contáctame',
+                'contact.button': 'Contáctame',
+                'contact.subtitle': '¿Tienes un proyecto en mente o alguna pregunta? No dudes en contactarme, estaré encantado de ayudarte.',
+                'contact.form.title': 'Envíame un mensaje',
+                'contact.form.name': 'Nombre',
+                'contact.form.email': 'Correo electrónico',
+                'contact.form.subject': 'Asunto',
+                'contact.form.message': 'Mensaje',
+                'contact.form.submit': 'Enviar Mensaje',
+                'cv.download': 'Descargar CV',
+                'contact.info.title': 'Información de contacto',
+                'contact.info.desc': 'Estoy disponible para trabajar en nuevos proyectos, colaboraciones o cualquier consulta. ¡No dudes en contactarme!',
+                'contact.info.email': 'Correo electrónico',
+                'contact.info.phone': 'Teléfono',
+                'contact.info.location': 'Ubicación',
+                'contact.social': 'Sígueme',
+                // Footer
+                'footer.desc': 'Desarrollador Full Stack especializado en crear soluciones digitales innovadoras y de alto rendimiento.',
+                'footer.links': 'Enlaces rápidos',
+                'footer.contact': 'Información de Contacto',
+                'footer.location': 'Venezuela',
+                'footer.copyright': '© 2024 Gregorio Boada. Todos los derechos reservados.'
+            },
+            en: {
+                // Navigation
+                'nav.home': 'Home',
+                'nav.about': 'About Me',
+                'nav.services': 'Services',
+                'nav.portfolio': 'Portfolio',
+                'nav.contact': 'Contact',
+                // Hero Section
+                'hero.title': 'Gregorio Boada',
+                'hero.subtitle': 'Full Stack Developer',
+                'hero.desc': 'Specialized in the development of modern and scalable web applications using technologies such as Laravel, Node.js, React and Vue.js.',
+                // Relative Section
+                'relative.text': '+10 years of experience',
+                // About Section
+                'about.title': 'About Me',
+                'about.subtitle': 'Software Developer | PHP & Laravel Specialist',
+                'about.description': 'Software developer with over 10 years of experience, specialized in creating robust and scalable web applications with PHP and the Laravel framework. My career includes leading development teams, designing efficient software architectures, and managing projects from start to finish, always committed to continuous learning and adopting modern technologies to deliver high-impact solutions.',
+                'about.skills': 'My Skills',
+                // Services Section
+                'services.title': 'Services',
+                'services.web': 'Web Development',
+                'services.webDesc': 'I develop custom websites with modern technologies such as Laravel, React, and Vue.js. My solutions are fast, secure, and SEO-optimized.',
+                'services.mobile': 'Mobile Apps',
+                'services.mobileDesc': 'I develop hybrid and progressive mobile apps (PWA) that work across multiple platforms.',
+                'services.api': 'APIs & Backend',
+                'services.apiDesc': 'Development of robust and scalable RESTful APIs with Laravel and Node.js, focusing on system integration and secure authentication.',
+                'services.ai': 'AI Solutions',
+                'services.aiDesc': 'Implementation of intelligent assistants, chatbots, and process automation using technologies like OpenAI or Google Gemini.',
+                'services.consulting': 'Technical Consulting',
+                'services.consultingDesc': 'Expert advice on software architecture, technology selection, and best development practices for scalable projects.',
+                'services.cloud': 'Cloud & DevOps',
+                'services.cloudDesc': 'Cloud application deployment, server configuration, and CI/CD pipelines to ensure scalability.',
+                // Portfolio Section
+                'portfolio.title': 'My Portfolio',
+                'portfolio.all': 'All',
+                'portfolio.web': 'Web',
+                'portfolio.mobile': 'Mobile',
+                'portfolio.backend': 'Backend',
+                'portfolio.tiket.title': 'Tiket Go',
+                'portfolio.tiket.desc': 'Scalable backend for management platform, with solid architecture for high traffic.',
+                'portfolio.gl.title': 'GL Satelital',
+                'portfolio.gl.desc': 'Modernization of satellite monitoring system with Angular frontend and Laravel backend.',
+                'portfolio.medical.title': 'Medical Appointments System',
+                'portfolio.medical.desc': 'Patient management and medical appointment scheduling system.',
+                'portfolio.klikealo.title': 'ERP - E-commerce Integration',
+                'portfolio.klikealo.desc': 'Bridge API for automatic synchronization between Retail Pro and Vtex.',
+                'portfolio.siagl.title': 'SIAGL System',
+                'portfolio.siagl.desc': 'Comprehensive system for managing mechanical workshops and vehicle tracking.',
+                'portfolio.more': 'View More Projects',
+                'portfolio.view': 'View Project',
+                // Contact Section
+                'contact.title': 'Contact Me',
+                'contact.button': 'Contact Me',
+                'contact.subtitle': 'Do you have a project in mind or any questions? Feel free to contact me, I\'ll be happy to help you.',
+                'contact.form.title': 'Send Me a Message',
+                'contact.form.name': 'Name',
+                'contact.form.email': 'Email',
+                'contact.form.subject': 'Subject',
+                'contact.form.message': 'Message',
+                'contact.form.submit': 'Send Message',
+                'cv.download': 'Download CV',
+                'contact.info.title': 'Contact Information',
+                'contact.info.desc': 'I am available to work on new projects, collaborations, or any inquiries. Do not hesitate to contact me!',
+                'contact.info.email': 'Email',
+                'contact.info.phone': 'Phone',
+                'contact.info.location': 'Location',
+                'contact.social': 'Follow Me',
+                // Footer
+                'footer.desc': 'Full Stack Developer specialized in creating innovative and high-performance digital solutions.',
+                'footer.links': 'Quick Links',
+                'footer.contact': 'Contact Information',
+                'footer.location': 'Venezuela',
+                'footer.copyright': '© 2024 Gregorio Boada. All rights reserved.'
+            },
+            en: {
+                // Navigation
+                'nav.home': 'Home',
+                'nav.about': 'About Me',
+                'nav.services': 'Services',
+                'nav.portfolio': 'Portfolio',
+                'nav.contact': 'Contact',
+                // Hero Section
+                'hero.title': 'Gregorio Boada',
+                'hero.subtitle': 'Full Stack Developer',
+                'hero.desc': 'Specialized in the development of modern and scalable web applications using technologies such as Laravel, Node.js, React and Vue.js.',
+                // Relative Section
+                'relative.text': '+10 years of experience',
+                // About Section
+                'about.title': 'About Me',
+                'about.subtitle': 'Software Developer | PHP & Laravel Specialist',
+                'about.description': 'Software developer with over 10 years of experience, specialized in creating robust and scalable web applications with PHP and the Laravel framework. My career includes leading development teams, designing efficient software architectures, and managing projects from start to finish, always committed to continuous learning and adopting modern technologies to deliver high-impact solutions.',
+                'about.skills': 'My Skills',
+                // Services Section
+                'services.title': 'Services',
+                'services.web': 'Web Development',
+                'services.webDesc': 'I develop custom websites with modern technologies such as Laravel, React, and Vue.js. My solutions are fast, secure, and SEO-optimized.',
+                'services.mobile': 'Mobile Apps',
+                'services.mobileDesc': 'I develop hybrid and progressive mobile apps (PWA) that work across multiple platforms.',
+                'services.api': 'APIs & Backend',
+                'services.apiDesc': 'Development of robust and scalable RESTful APIs with Laravel and Node.js, focusing on system integration and secure authentication.',
+                'services.ai': 'AI Solutions',
+                'services.aiDesc': 'Implementation of intelligent assistants, chatbots, and process automation using technologies like OpenAI or Google Gemini.',
+                'services.consulting': 'Technical Consulting',
+                'services.consultingDesc': 'Expert advice on software architecture, technology selection, and best development practices for scalable projects.',
+                'services.cloud': 'Cloud & DevOps',
+                'services.cloudDesc': 'Cloud application deployment, server configuration, and CI/CD pipelines to ensure scalability.',
+                // Portfolio Section
+                'portfolio.title': 'My Portfolio',
+                'portfolio.all': 'All',
+                'portfolio.web': 'Web',
+                'portfolio.mobile': 'Mobile',
+                'portfolio.backend': 'Backend',
+                'portfolio.tiket.title': 'Tiket Go',
+                'portfolio.tiket.desc': 'Scalable backend for management platform, with solid architecture for high traffic.',
+                'portfolio.gl.title': 'GL Satelital',
+                'portfolio.gl.desc': 'Modernization of satellite monitoring system with Angular frontend and Laravel backend.',
+                'portfolio.medical.title': 'Medical Appointments System',
+                'portfolio.medical.desc': 'Patient management and medical appointment scheduling system.',
+                'portfolio.klikealo.title': 'ERP - E-commerce Integration',
+                'portfolio.klikealo.desc': 'Bridge API for automatic synchronization between Retail Pro and Vtex.',
+                'portfolio.siagl.title': 'SIAGL System',
+                'portfolio.siagl.desc': 'Comprehensive system for managing mechanical workshops and vehicle tracking.',
+                'portfolio.more': 'View More Projects',
+                'portfolio.view': 'View Project',
+                // Contact Section
+                'contact.title': 'Contact Me',
+                'contact.button': 'Contact Me',
+                'contact.subtitle': 'Do you have a project in mind or any questions? Feel free to contact me, I\'ll be happy to help you.',
+                'contact.form.title': 'Send Me a Message',
+                'contact.form.name': 'Name',
+                'contact.form.email': 'Email',
+                'contact.form.subject': 'Subject',
+                'contact.form.message': 'Message',
+                'contact.form.submit': 'Send Message',
+                'cv.download': 'Download CV',
+                'contact.info.title': 'Contact Information',
+                'contact.info.desc': 'I am available to work on new projects, collaborations, or any inquiries. Do not hesitate to contact me!',
+                'contact.info.email': 'Email',
+                'contact.info.phone': 'Phone',
+                'contact.info.location': 'Location',
+                'contact.social': 'Follow Me',
+                // Footer
+                'footer.desc': 'Full Stack Developer specialized in creating innovative and high-performance digital solutions.',
+                'footer.links': 'Quick Links',
+                'footer.contact': 'Contact Information',
+                'footer.location': 'Venezuela',
+                'footer.copyright': '© 2024 Gregorio Boada. All rights reserved.'
+            }
+        };
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-primary px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        // Function to update content based on language
+        function updateContent(lang) {
+            // Update CV download link based on language
+            const cvDownloadLink = document.getElementById('cv-download');
+            if (cvDownloadLink) {
+                cvDownloadLink.href = lang === 'es'
+                    ? 'uploads/cv/gregorio-boada.pdf'
+                    : 'uploads/cv/gregorio-boada-en.pdf';
+            }
 
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            // Update active language button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('bg-blue-100', 'text-blue-600');
+                    btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                } else {
+                    btn.classList.remove('bg-blue-100', 'text-blue-600');
+                    btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+                }
+            });
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            // Save to localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            }
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+            // Language Switching
+            const langButtons = document.querySelectorAll('.language-btn');
+            langButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lang = button.getAttribute('data-lang');
+                    updateContent(lang);
+                });
+            });
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+            // Set initial language from localStorage or default to browser language
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+            const defaultLang = savedLang || browserLang;
+            updateContent(defaultLang);
 
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.remove('hidden');
+                    } else {
+                        backToTopButton.classList.add('hidden');
+                    }
+                });
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
+                    contactForm.reset();
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('[data-filter]');
+            const projectCards = document.querySelectorAll('.project-card');
+            if (filterButtons.length > 0 && projectCards.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Update active button
+                        filterButtons.forEach(btn => {
+                            btn.classList.remove('bg-blue-600', 'text-white');
+                            btn.classList.add('bg-gray-100', 'text-gray-700');
+                        });
+                        button.classList.remove('bg-gray-100', 'text-gray-700');
+                        button.classList.add('bg-blue-600', 'text-white');
+                        // Filter projects
+                        const filter = button.getAttribute('data-filter');
+                        projectCards.forEach(card => {
+                            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
