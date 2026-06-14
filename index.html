@@ -7,6 +7,18 @@
     <title>Gregorio Boada - Desarrollador Full Stack</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+        // Theme initialization to prevent Flash of Unstyled Content (FOUC)
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -115,6 +127,148 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
+
+        /* Custom Dark Mode Rules */
+        .dark body {
+            background-color: #030712; /* gray-950 */
+            color: #f9fafb; /* gray-50 */
+        }
+        .dark nav {
+            background-color: rgba(3, 7, 18, 0.95) !important;
+            border-color: #1f2937; /* gray-800 */
+        }
+        .dark nav a {
+            color: #d1d5db; /* gray-300 */
+        }
+        .dark nav a:hover {
+            color: #3b82f6; /* blue-500 */
+        }
+        .dark #mobile-menu {
+            background-color: #111827; /* gray-900 */
+            border-color: #1f2937;
+        }
+        .dark #mobile-menu a {
+            color: #d1d5db;
+        }
+        .dark #mobile-menu a:hover {
+            background-color: #1f2937;
+        }
+        .dark #home {
+            background-color: #111827; /* gray-900 */
+        }
+        .dark #home h1, .dark #home h2, .dark #home p {
+            color: #f3f4f6;
+        }
+        .dark #home h2, .dark #home p {
+            color: #9ca3af; /* gray-400 */
+        }
+        .dark #about {
+            background-color: #030712; /* gray-950 */
+        }
+        .dark #about h2, .dark #about h3, .dark #about span {
+            color: #ffffff;
+        }
+        .dark #about p {
+            color: #9ca3af;
+        }
+        .dark .w-full.bg-gray-200 {
+            background-color: #1f2937; /* gray-800 */
+        }
+        .dark #services {
+            background-color: #111827; /* gray-900 */
+        }
+        .dark #services h2 {
+            color: #ffffff;
+        }
+        .dark #services .bg-white {
+            background-color: #1f2937; /* gray-800 */
+        }
+        .dark #services h3 {
+            color: #ffffff;
+        }
+        .dark #services p {
+            color: #9ca3af;
+        }
+        .dark #services .bg-gray-100 {
+            background-color: #374151; /* gray-700 */
+            color: #d1d5db;
+        }
+        .dark #services .bg-blue-100 {
+            background-color: #1e3a8a; /* blue-900 */
+            color: #93c5fd; /* blue-300 */
+        }
+        .dark #portfolio {
+            background-color: #030712; /* gray-950 */
+        }
+        .dark #portfolio h2 {
+            color: #ffffff;
+        }
+        .dark #portfolio .project-card {
+            background-color: #111827; /* gray-900 */
+        }
+        .dark #portfolio h3 {
+            color: #ffffff;
+        }
+        .dark #portfolio p {
+            color: #9ca3af;
+        }
+        .dark #portfolio .bg-blue-100 {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+        }
+        .dark #portfolio .bg-yellow-100 {
+            background-color: #78350f; /* yellow-900 */
+            color: #fde047; /* yellow-300 */
+        }
+        .dark #portfolio button[data-filter].bg-gray-100 {
+            background-color: #1f2937;
+            color: #d1d5db;
+        }
+        .dark #portfolio button[data-filter].bg-gray-100:hover {
+            background-color: #374151;
+        }
+        .dark #portfolio button[data-filter].bg-blue-600 {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+        .dark #contact {
+            background-color: #111827;
+        }
+        .dark #contact h2, .dark #contact h3, .dark #contact h4 {
+            color: #ffffff;
+        }
+        .dark #contact p {
+            color: #9ca3af;
+        }
+        .dark #contact .bg-white, .dark #contact .bg-gray-50 {
+            background-color: #1f2937;
+        }
+        .dark #contact input, .dark #contact textarea {
+            background-color: #111827;
+            border-color: #374151;
+            color: #ffffff;
+        }
+        .dark #contact label {
+            color: #d1d5db;
+        }
+        .dark #contact .bg-blue-100 {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+        }
+        .dark #lang-es, .dark #lang-en {
+            color: #d1d5db;
+        }
+        .dark #lang-es:hover, .dark #lang-en:hover {
+            background-color: #1f2937;
+        }
+        .dark #lang-es.bg-blue-100, .dark #lang-en.bg-blue-100 {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+        }
+        .dark #mobile-menu .language-btn.bg-gray-200 {
+            background-color: #1f2937;
+            color: #d1d5db;
+        }
     </style>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -125,6 +279,26 @@
             // https://dashboard.emailjs.com/admin/account
             emailjs.init("8DQ2MUxNo6uYOiGT2");
         })();
+    </script>
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gregorio Boada",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://grebo87.github.io/",
+      "image": "https://grebo87.github.io/img/about2.jpeg",
+      "sameAs": [
+        "https://github.com/grebo87",
+        "https://linkedin.com/in/gregorio-boada-084373136"
+      ],
+      "knowsAbout": ["PHP", "Laravel", "JavaScript", "React", "Vue.js", "Node.js", "APIs", "SQL", "Tailwind CSS"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad"
+      }
+    }
     </script>
 </head>
 
@@ -150,12 +324,17 @@
                     <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600"
                         data-i18n="nav.contact">Contacto</a>
                     <div class="flex items-center space-x-2 ml-4">
-                        <button id="lang-es"
+                        <button id="lang-es" aria-label="Cambiar a Español"
                             class="language-btn px-2 py-1 rounded-md bg-blue-100 text-blue-600 font-medium"
                             data-lang="es">ES</button>
-                        <button id="lang-en" class="language-btn px-2 py-1 rounded-md text-gray-600 hover:bg-gray-100"
+                        <button id="lang-en" aria-label="Switch to English" class="language-btn px-2 py-1 rounded-md text-gray-600 hover:bg-gray-100"
                             data-lang="en">EN</button>
                     </div>
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle" class="p-2 ml-2 rounded-md text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon text-lg dark:hidden"></i>
+                        <i class="fas fa-sun text-lg hidden dark:block text-yellow-400"></i>
+                    </button>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
@@ -181,11 +360,18 @@
                     data-i18n="nav.portfolio">Portafolio</a>
                 <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
                     data-i18n="nav.contact">Contacto</a>
-                <div class="flex px-3 py-2 space-x-2">
-                    <button class="language-btn px-3 py-1 rounded-md text-sm font-medium bg-blue-600 text-white"
-                        data-lang="es">ES</button>
-                    <button class="language-btn px-3 py-1 rounded-md text-sm font-medium bg-gray-200 text-gray-700"
-                        data-lang="en">EN</button>
+                <div class="flex px-3 py-2 items-center justify-between">
+                    <div class="flex space-x-2">
+                        <button class="language-btn px-3 py-1 rounded-md text-sm font-medium bg-blue-600 text-white"
+                            data-lang="es">ES</button>
+                        <button class="language-btn px-3 py-1 rounded-md text-sm font-medium bg-gray-200 text-gray-700"
+                            data-lang="en">EN</button>
+                    </div>
+                    <!-- Mobile Dark Mode Toggle -->
+                    <button id="mobile-dark-mode-toggle" class="p-2 rounded-md text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon text-lg dark:hidden"></i>
+                        <i class="fas fa-sun text-lg hidden dark:block text-yellow-400"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -219,11 +405,11 @@
                         </a>
                     </div>
                     <div class="flex space-x-6 pt-4">
-                        <a href="https://github.com/grebo87" target="_blank"
+                        <a href="https://github.com/grebo87" target="_blank" aria-label="GitHub Profile"
                             class="text-gray-600 hover:text-blue-600 transition-colors duration-300">
                             <i class="fab fa-github text-2xl"></i>
                         </a>
-                        <a href="https://linkedin.com/in/gregorio-boada-084373136" target="_blank"
+                        <a href="https://linkedin.com/in/gregorio-boada-084373136" target="_blank" aria-label="LinkedIn Profile"
                             class="text-gray-600 hover:text-blue-600 transition-colors duration-300">
                             <i class="fab fa-linkedin text-2xl"></i>
                         </a>
@@ -233,12 +419,12 @@
                     <div class="relative">
                         <!-- Circular Profile Image -->
                         <div
-                            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
                             <img src="img/about2.jpeg" alt="Gregorio Boada" class="w-full h-full object-cover">
                         </div>
                         <!-- Experience Badge -->
                         <div
-                            class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full whitespace-nowrap shadow-lg">
+                            class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 dark:bg-blue-500 text-white px-6 py-2 rounded-full whitespace-nowrap shadow-lg">
                             <p class="text-sm font-medium" data-i18n="relative.text">+10 años de experiencia</p>
                         </div>
                     </div>
@@ -505,6 +691,9 @@
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">MySQL</span>
                                         <span
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Socket.io</span>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
+                                            <i class="fas fa-lock mr-1"></i> <span data-i18n="portfolio.private">Código Privado</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -527,6 +716,9 @@
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Laravel</span>
                                         <span
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">PostgreSQL</span>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
+                                            <i class="fas fa-lock mr-1"></i> <span data-i18n="portfolio.private">Código Privado</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -550,6 +742,9 @@
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Vue.js</span>
                                         <span
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">MySQL</span>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
+                                            <i class="fas fa-lock mr-1"></i> <span data-i18n="portfolio.private">Código Privado</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -573,6 +768,9 @@
                                             REST</span>
                                         <span
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">Vtex</span>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
+                                            <i class="fas fa-lock mr-1"></i> <span data-i18n="portfolio.private">Código Privado</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -597,6 +795,9 @@
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">React</span>
                                         <span
                                             class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">PostgreSQL</span>
+                                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
+                                            <i class="fas fa-lock mr-1"></i> <span data-i18n="portfolio.private">Código Privado</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -631,25 +832,25 @@
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1"
                                 data-i18n="contact.form.name">Nombre</label>
-                            <input type="text" id="name" name="name" required
+                            <input type="text" id="name" name="name" required data-i18n-placeholder="contact.form.namePlaceholder"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1"
                                 data-i18n="contact.form.email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" required
+                            <input type="email" id="email" name="email" required data-i18n-placeholder="contact.form.emailPlaceholder"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-700 mb-1"
                                 data-i18n="contact.form.subject">Asunto</label>
-                            <input type="text" id="subject" name="subject" required
+                            <input type="text" id="subject" name="subject" required data-i18n-placeholder="contact.form.subjectPlaceholder"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-1"
                                 data-i18n="contact.form.message">Mensaje</label>
-                            <textarea id="message" name="message" rows="5" required
+                            <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contact.form.messagePlaceholder"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
                         </div>
                         <div>
@@ -836,6 +1037,7 @@
                 'portfolio.siagl.desc': 'Sistema integral para la gestión de talleres mecánicos y seguimiento de vehículos.',
                 'portfolio.more': 'Ver más proyectos',
                 'portfolio.view': 'Ver Proyecto',
+                'portfolio.private': 'Código Privado',
                 // Contact Section
                 'contact.title': 'Contáctame',
                 'contact.button': 'Contáctame',
@@ -846,6 +1048,10 @@
                 'contact.form.subject': 'Asunto',
                 'contact.form.message': 'Mensaje',
                 'contact.form.submit': 'Enviar Mensaje',
+                'contact.form.namePlaceholder': 'Tu nombre completo',
+                'contact.form.emailPlaceholder': 'tu.correo@ejemplo.com',
+                'contact.form.subjectPlaceholder': 'Asunto del mensaje',
+                'contact.form.messagePlaceholder': 'Escribe tu mensaje aquí...',
                 'cv.download': 'Descargar CV',
                 'contact.info.title': 'Información de contacto',
                 'contact.info.desc': 'Estoy disponible para trabajar en nuevos proyectos, colaboraciones o cualquier consulta. ¡No dudes en contactarme!',
@@ -917,6 +1123,7 @@
                 'portfolio.siagl.desc': 'Comprehensive system for managing mechanical workshops and vehicle tracking.',
                 'portfolio.more': 'View More Projects',
                 'portfolio.view': 'View Project',
+                'portfolio.private': 'Private Code',
                 // Contact Section
                 'contact.title': 'Contact Me',
                 'contact.button': 'Contact Me',
@@ -927,6 +1134,10 @@
                 'contact.form.subject': 'Subject',
                 'contact.form.message': 'Message',
                 'contact.form.submit': 'Send Message',
+                'contact.form.namePlaceholder': 'Your full name',
+                'contact.form.emailPlaceholder': 'your.email@example.com',
+                'contact.form.subjectPlaceholder': 'Subject of the message',
+                'contact.form.messagePlaceholder': 'Write your message here...',
                 'cv.download': 'Download CV',
                 'contact.info.title': 'Contact Information',
                 'contact.info.desc': 'I am available to work on new projects, collaborations, or any inquiries. Do not hesitate to contact me!',
@@ -966,6 +1177,15 @@
                     el.textContent = translations[lang][key];
                 }
             });
+
+            // Update all translatable placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+
             // Update active language button
             document.querySelectorAll('.language-btn').forEach(btn => {
                 const isMobile = btn.closest('#mobile-menu') !== null;
@@ -974,16 +1194,16 @@
                         btn.classList.add('bg-blue-600', 'text-white');
                         btn.classList.remove('bg-gray-200', 'text-gray-700');
                     } else {
-                        btn.classList.add('bg-blue-100', 'text-blue-600');
-                        btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                        btn.classList.add('bg-blue-100', 'text-blue-600', 'dark:bg-blue-950', 'dark:text-blue-300');
+                        btn.classList.remove('text-gray-600', 'hover:bg-gray-100', 'dark:text-gray-400', 'dark:hover:bg-gray-800');
                     }
                 } else {
                     if (isMobile) {
                         btn.classList.remove('bg-blue-600', 'text-white');
                         btn.classList.add('bg-gray-200', 'text-gray-700');
                     } else {
-                        btn.classList.remove('bg-blue-100', 'text-blue-600');
-                        btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+                        btn.classList.remove('bg-blue-100', 'text-blue-600', 'dark:bg-blue-950', 'dark:text-blue-300');
+                        btn.classList.add('text-gray-600', 'hover:bg-gray-100', 'dark:text-gray-400', 'dark:hover:bg-gray-800');
                     }
                 }
             });
@@ -995,6 +1215,27 @@
 
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle Logic
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
+            
+            function toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', toggleTheme);
+            }
+            if (mobileDarkModeToggle) {
+                mobileDarkModeToggle.addEventListener('click', toggleTheme);
+            }
+
             // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
