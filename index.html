@@ -182,9 +182,9 @@
                 <a href="#contact" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
                     data-i18n="nav.contact">Contacto</a>
                 <div class="flex px-3 py-2 space-x-2">
-                    <button class="px-3 py-1 bg-blue-600 text-white rounded-md text-sm font-medium"
+                    <button class="language-btn px-3 py-1 rounded-md text-sm font-medium bg-blue-600 text-white"
                         data-lang="es">ES</button>
-                    <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded-md text-sm font-medium"
+                    <button class="language-btn px-3 py-1 rounded-md text-sm font-medium bg-gray-200 text-gray-700"
                         data-lang="en">EN</button>
                 </div>
             </div>
@@ -197,7 +197,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                        Hola, soy <span class="text-blue-600" data-i18n="hero.title">Gregorio Boada</span>
+                        <span data-i18n="hero.greeting">Hola, soy </span><span class="text-blue-600" data-i18n="hero.title">Gregorio Boada</span>
                     </h1>
                     <h2 class="text-2xl md:text-3xl text-gray-600 font-medium" data-i18n="hero.subtitle">
                         Desarrollador Full Stack
@@ -481,7 +481,10 @@
                     <button
                         class="px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors"
                         data-filter="mobile" data-i18n="portfolio.mobile">Móvil</button>
-                    <button </div>
+                    <button
+                        class="px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors"
+                        data-filter="backend" data-i18n="portfolio.backend">Backend</button>
+                </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <!-- Project 1: Tiket Go -->
                             <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -790,6 +793,7 @@
                 'nav.portfolio': 'Portafolio',
                 'nav.contact': 'Contacto',
                 // Hero Section
+                'hero.greeting': 'Hola, soy ',
                 'hero.title': 'Gregorio Boada',
                 'hero.subtitle': 'Desarrollador Full Stack',
                 'hero.desc': 'Especializado en el desarrollo de aplicaciones web modernas y escalables con tecnologías como Laravel, Node.js, React y Vue.js.',
@@ -854,7 +858,13 @@
                 'footer.links': 'Enlaces rápidos',
                 'footer.contact': 'Información de Contacto',
                 'footer.location': 'Venezuela',
-                'footer.copyright': '© 2024 Gregorio Boada. Todos los derechos reservados.'
+                'footer.copyright': '© 2024 Gregorio Boada. Todos los derechos reservados.',
+                // Contact Form Alerts
+                'contact.alert.success.title': '¡Enviado!',
+                'contact.alert.success.text': 'Gracias por tu mensaje. Me pondré en contacto contigo pronto.',
+                'contact.alert.error.title': 'Error',
+                'contact.alert.error.text': 'Hubo un error al enviar el mensaje. Por favor intenta nuevamente.',
+                'contact.form.sending': 'Enviando...'
             },
             en: {
                 // Navigation
@@ -864,6 +874,7 @@
                 'nav.portfolio': 'Portfolio',
                 'nav.contact': 'Contact',
                 // Hero Section
+                'hero.greeting': 'Hello, I am ',
                 'hero.title': 'Gregorio Boada',
                 'hero.subtitle': 'Full Stack Developer',
                 'hero.desc': 'Specialized in the development of modern and scalable web applications using technologies such as Laravel, Node.js, React and Vue.js.',
@@ -928,81 +939,13 @@
                 'footer.links': 'Quick Links',
                 'footer.contact': 'Contact Information',
                 'footer.location': 'Venezuela',
-                'footer.copyright': '© 2024 Gregorio Boada. All rights reserved.'
-            },
-            en: {
-                // Navigation
-                'nav.home': 'Home',
-                'nav.about': 'About Me',
-                'nav.services': 'Services',
-                'nav.portfolio': 'Portfolio',
-                'nav.contact': 'Contact',
-                // Hero Section
-                'hero.title': 'Gregorio Boada',
-                'hero.subtitle': 'Full Stack Developer',
-                'hero.desc': 'Specialized in the development of modern and scalable web applications using technologies such as Laravel, Node.js, React and Vue.js.',
-                // Relative Section
-                'relative.text': '+10 years of experience',
-                // About Section
-                'about.title': 'About Me',
-                'about.subtitle': 'Software Developer | PHP & Laravel Specialist',
-                'about.description': 'Software developer with over 10 years of experience, specialized in creating robust and scalable web applications with PHP and the Laravel framework. My career includes leading development teams, designing efficient software architectures, and managing projects from start to finish, always committed to continuous learning and adopting modern technologies to deliver high-impact solutions.',
-                'about.skills': 'My Skills',
-                // Services Section
-                'services.title': 'Services',
-                'services.web': 'Web Development',
-                'services.webDesc': 'I develop custom websites with modern technologies such as Laravel, React, and Vue.js. My solutions are fast, secure, and SEO-optimized.',
-                'services.mobile': 'Mobile Apps',
-                'services.mobileDesc': 'I develop hybrid and progressive mobile apps (PWA) that work across multiple platforms.',
-                'services.api': 'APIs & Backend',
-                'services.apiDesc': 'Development of robust and scalable RESTful APIs with Laravel and Node.js, focusing on system integration and secure authentication.',
-                'services.ai': 'AI Solutions',
-                'services.aiDesc': 'Implementation of intelligent assistants, chatbots, and process automation using technologies like OpenAI or Google Gemini.',
-                'services.consulting': 'Technical Consulting',
-                'services.consultingDesc': 'Expert advice on software architecture, technology selection, and best development practices for scalable projects.',
-                'services.cloud': 'Cloud & DevOps',
-                'services.cloudDesc': 'Cloud application deployment, server configuration, and CI/CD pipelines to ensure scalability.',
-                // Portfolio Section
-                'portfolio.title': 'My Portfolio',
-                'portfolio.all': 'All',
-                'portfolio.web': 'Web',
-                'portfolio.mobile': 'Mobile',
-                'portfolio.backend': 'Backend',
-                'portfolio.tiket.title': 'Tiket Go',
-                'portfolio.tiket.desc': 'Scalable backend for management platform, with solid architecture for high traffic.',
-                'portfolio.gl.title': 'GL Satelital',
-                'portfolio.gl.desc': 'Modernization of satellite monitoring system with Angular frontend and Laravel backend.',
-                'portfolio.medical.title': 'Medical Appointments System',
-                'portfolio.medical.desc': 'Patient management and medical appointment scheduling system.',
-                'portfolio.klikealo.title': 'ERP - E-commerce Integration',
-                'portfolio.klikealo.desc': 'Bridge API for automatic synchronization between Retail Pro and Vtex.',
-                'portfolio.siagl.title': 'SIAGL System',
-                'portfolio.siagl.desc': 'Comprehensive system for managing mechanical workshops and vehicle tracking.',
-                'portfolio.more': 'View More Projects',
-                'portfolio.view': 'View Project',
-                // Contact Section
-                'contact.title': 'Contact Me',
-                'contact.button': 'Contact Me',
-                'contact.subtitle': 'Do you have a project in mind or any questions? Feel free to contact me, I\'ll be happy to help you.',
-                'contact.form.title': 'Send Me a Message',
-                'contact.form.name': 'Name',
-                'contact.form.email': 'Email',
-                'contact.form.subject': 'Subject',
-                'contact.form.message': 'Message',
-                'contact.form.submit': 'Send Message',
-                'cv.download': 'Download CV',
-                'contact.info.title': 'Contact Information',
-                'contact.info.desc': 'I am available to work on new projects, collaborations, or any inquiries. Do not hesitate to contact me!',
-                'contact.info.email': 'Email',
-                'contact.info.phone': 'Phone',
-                'contact.info.location': 'Location',
-                'contact.social': 'Follow Me',
-                // Footer
-                'footer.desc': 'Full Stack Developer specialized in creating innovative and high-performance digital solutions.',
-                'footer.links': 'Quick Links',
-                'footer.contact': 'Contact Information',
-                'footer.location': 'Venezuela',
-                'footer.copyright': '© 2024 Gregorio Boada. All rights reserved.'
+                'footer.copyright': '© 2024 Gregorio Boada. All rights reserved.',
+                // Contact Form Alerts
+                'contact.alert.success.title': 'Sent!',
+                'contact.alert.success.text': 'Thank you for your message. I will get in touch with you soon.',
+                'contact.alert.error.title': 'Error',
+                'contact.alert.error.text': 'There was an error sending your message. Please try again.',
+                'contact.form.sending': 'Sending...'
             }
         };
 
@@ -1025,12 +968,23 @@
             });
             // Update active language button
             document.querySelectorAll('.language-btn').forEach(btn => {
+                const isMobile = btn.closest('#mobile-menu') !== null;
                 if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('bg-blue-100', 'text-blue-600');
-                    btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                    if (isMobile) {
+                        btn.classList.add('bg-blue-600', 'text-white');
+                        btn.classList.remove('bg-gray-200', 'text-gray-700');
+                    } else {
+                        btn.classList.add('bg-blue-100', 'text-blue-600');
+                        btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                    }
                 } else {
-                    btn.classList.remove('bg-blue-100', 'text-blue-600');
-                    btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+                    if (isMobile) {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    } else {
+                        btn.classList.remove('bg-blue-100', 'text-blue-600');
+                        btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+                    }
                 }
             });
             // Update HTML lang attribute
@@ -1095,10 +1049,12 @@
                 contactForm.addEventListener('submit', function (e) {
                     e.preventDefault();
 
+                    const currentLang = document.documentElement.lang || 'es';
+
                     // Show loading state
                     const submitBtn = contactForm.querySelector('button[type="submit"]');
                     const originalText = submitBtn.innerText;
-                    submitBtn.innerText = 'Enviando...';
+                    submitBtn.innerText = translations[currentLang]['contact.form.sending'] || 'Enviando...';
                     submitBtn.disabled = true;
 
                     // These IDs from the previous steps
@@ -1109,8 +1065,8 @@
                         .then((response) => {
                             console.log('SUCCESS!', response.status, response.text);
                             Swal.fire({
-                                title: '¡Enviado!',
-                                text: 'Gracias por tu mensaje. Me pondré en contacto contigo pronto.',
+                                title: translations[currentLang]['contact.alert.success.title'] || '¡Enviado!',
+                                text: translations[currentLang]['contact.alert.success.text'] || 'Gracias por tu mensaje.',
                                 icon: 'success',
                                 confirmButtonColor: '#2563eb'
                             });
@@ -1118,8 +1074,8 @@
                         }, (err) => {
                             console.log('FAILED...', err);
                             Swal.fire({
-                                title: 'Error',
-                                text: 'Hubo un error al enviar el mensaje. Por favor intenta nuevamente.',
+                                title: translations[currentLang]['contact.alert.error.title'] || 'Error',
+                                text: translations[currentLang]['contact.alert.error.text'] || 'Hubo un error.',
                                 icon: 'error',
                                 confirmButtonColor: '#2563eb'
                             });
